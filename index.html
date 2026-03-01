@@ -1,13 +1,29 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>campusambassador</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Summit on AI — Campus Ambassador Program</title>
+  <script>
+    // GitHub Pages SPA routing: restore path from 404.html redirect
+    (function () {
+      var search = location.search;
+      if (search) {
+        var p = search.slice(1).split('&').find(function (s) { return s.startsWith('p=/'); });
+        if (p) {
+          var path = p.slice(2).replace(/~and~/g, '&');
+          history.replaceState(null, null, '/AI-CONCLAVE-CA' + path);
+        }
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
