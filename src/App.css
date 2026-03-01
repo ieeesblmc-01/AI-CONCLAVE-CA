@@ -1,0 +1,12 @@
+/* App-level styles */
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 80px;
+}

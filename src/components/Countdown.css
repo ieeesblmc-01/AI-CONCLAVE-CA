@@ -1,0 +1,333 @@
+/* RegisterPage: Countdown + Register combined */
+.register-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* ── Countdown ── */
+.countdown-section {
+    position: relative;
+    z-index: 2;
+    padding: 60px 24px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--violet);
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(26px, 5vw, 50px);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    margin-bottom: 8px;
+    animation: neonPulse 3s ease-in-out infinite;
+}
+
+.section-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.section-header {
+    margin-bottom: 12px;
+}
+
+/* Single row countdown */
+.countdown-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    margin-bottom: 28px;
+}
+
+.countdown-unit-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.time-sep {
+    font-size: clamp(28px, 5vw, 50px);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--violet);
+    opacity: 0.5;
+    padding: 0 6px;
+    margin-bottom: 24px;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.time-card {
+    position: relative;
+    width: clamp(80px, 12vw, 130px);
+    height: clamp(80px, 12vw, 130px);
+    background: linear-gradient(135deg, rgba(30, 10, 60, 0.9), rgba(15, 5, 40, 0.9));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 24px var(--glow2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-card:hover {
+    border-color: var(--violet);
+    box-shadow: 0 0 40px var(--glow);
+}
+
+.time-card.flip .time-number {
+    animation: countdownFlip 0.35s ease;
+}
+
+.time-number {
+    font-size: clamp(28px, 5vw, 52px);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px var(--violet), 0 0 40px var(--violet);
+    line-height: 1;
+}
+
+.time-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: 14px 14px 0 0;
+}
+
+.time-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+
+.countdown-footer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.countdown-footer-text strong {
+    color: var(--violet);
+}
+
+.pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
+    animation: blink 1s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+/* ── Divider ── */
+.reg-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.divider-icon {
+    font-size: 22px;
+    filter: drop-shadow(0 0 8px var(--violet));
+}
+
+/* ── Register section ── */
+.register-section {
+    position: relative;
+    z-index: 2;
+    padding: 40px 24px 80px;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    overflow: hidden;
+}
+
+.register-glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    border: 1px solid rgba(196, 78, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.register-glow-ring2 {
+    width: 750px;
+    height: 600px;
+    animation-delay: -2s;
+    border-color: rgba(123, 47, 255, 0.06);
+}
+
+.register-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.register-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--violet);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.register-title {
+    font-size: clamp(24px, 4vw, 44px);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+}
+
+.register-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.register-desc strong {
+    color: var(--text);
+}
+
+.register-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 52px;
+    background: linear-gradient(135deg, var(--purple), var(--violet), var(--pink));
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border-radius: 60px;
+    color: white;
+    font-size: 17px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: 0 0 40px var(--glow), 0 0 80px var(--glow2);
+}
+
+.register-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 60px var(--glow), 0 0 120px var(--glow2);
+}
+
+.register-btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.18) 60%, rgba(255, 255, 255, 0) 80%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+    pointer-events: none;
+    border-radius: 60px;
+}
+
+.register-btn-icon {
+    font-size: 20px;
+}
+
+.register-btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.register-btn-arrow {
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.register-btn:hover .register-btn-arrow {
+    transform: translateX(4px);
+}
+
+.register-note {
+    font-size: 12px;
+    color: rgba(160, 128, 192, 0.5);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .time-card {
+        width: 64px;
+        height: 64px;
+    }
+
+    .time-number {
+        font-size: 22px;
+    }
+
+    .time-sep {
+        font-size: 22px;
+    }
+
+    .register-btn {
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,122 @@
+.register-section {
+    position: relative;
+    z-index: 2;
+    padding: 80px 24px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.register-glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(196, 78, 255, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.register-glow-ring2 {
+    width: 750px;
+    height: 750px;
+    animation-delay: -2s;
+    border-color: rgba(123, 47, 255, 0.07);
+}
+
+.register-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.register-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--violet);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.register-title {
+    font-size: clamp(26px, 4.5vw, 46px);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+}
+
+.register-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.register-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 52px;
+    background: linear-gradient(135deg, var(--purple), var(--violet), var(--pink));
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border-radius: 60px;
+    color: white;
+    font-size: 17px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: 0 0 40px var(--glow), 0 0 80px var(--glow2);
+}
+
+.register-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 60px var(--glow), 0 0 120px var(--glow2), 0 0 200px rgba(196, 78, 255, 0.2);
+}
+
+.register-btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.18) 60%, rgba(255, 255, 255, 0) 80%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+    pointer-events: none;
+    border-radius: 60px;
+}
+
+.register-btn-icon {
+    font-size: 20px;
+}
+
+.register-btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.register-btn-arrow {
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.register-btn:hover .register-btn-arrow {
+    transform: translateX(4px);
+}
+
+.register-note {
+    font-size: 12px;
+    color: rgba(160, 128, 192, 0.6);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+}

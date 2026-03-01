@@ -1,0 +1,339 @@
+.keygen-section {
+    position: relative;
+    z-index: 2;
+    padding: 80px 24px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.keygen-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(196, 78, 255, 0.12) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.keygen-card {
+    padding: 40px 36px;
+    margin-top: 32px;
+    animation: scaleIn 0.5s ease;
+}
+
+/* Formula bar */
+.keygen-formula {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(180, 79, 255, 0.12);
+}
+
+.formula-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.formula-sample {
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--violet);
+    letter-spacing: 3px;
+}
+
+.formula-result {
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.formula-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.formula-plus,
+.formula-eq {
+    font-size: 22px;
+    color: rgba(180, 79, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    margin-top: -16px;
+}
+
+/* Inputs */
+.keygen-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.input-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+
+.kg-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    color: var(--text);
+    font-size: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.kg-input::placeholder {
+    color: rgba(160, 128, 192, 0.4);
+}
+
+.kg-input:focus {
+    border-color: var(--violet);
+    box-shadow: 0 0 20px var(--glow2);
+}
+
+.input-preview {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+}
+
+.input-preview strong {
+    color: var(--violet);
+}
+
+.kg-error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Generate button */
+.kg-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple), var(--violet));
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.kg-btn:hover:not(:disabled) {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px var(--glow);
+}
+
+.kg-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.kg-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Key display */
+.key-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px 20px;
+    transition: all 0.4s;
+}
+
+.key-display.animating {
+    opacity: 0.7;
+}
+
+.key-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 16px;
+}
+
+.key-chars {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.key-char {
+    width: 52px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    animation: keyReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.key-alpha {
+    background: linear-gradient(135deg, rgba(123, 47, 255, 0.25), rgba(196, 78, 255, 0.15));
+    color: var(--violet);
+    box-shadow: 0 0 15px rgba(196, 78, 255, 0.2);
+}
+
+.key-num {
+    background: linear-gradient(135deg, rgba(255, 68, 204, 0.2), rgba(123, 47, 255, 0.15));
+    color: var(--pink);
+    box-shadow: 0 0 15px rgba(255, 68, 204, 0.15);
+}
+
+.key-char.scramble {
+    color: rgba(180, 79, 255, 0.4);
+    background: rgba(0, 0, 0, 0.2);
+    animation: none;
+}
+
+/* Breakdown */
+.key-breakdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.key-seg {
+    font-size: 13px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+.seg-name {
+    background: rgba(123, 47, 255, 0.2);
+    color: var(--violet);
+}
+
+.seg-college {
+    background: rgba(196, 78, 255, 0.2);
+    color: var(--violet);
+}
+
+.seg-num {
+    background: rgba(255, 68, 204, 0.15);
+    color: var(--pink);
+}
+
+.key-seg-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.key-sep {
+    color: rgba(180, 79, 255, 0.3);
+    font-size: 18px;
+}
+
+/* Copy button */
+.copy-btn {
+    padding: 10px 28px;
+    background: transparent;
+    border: 1.5px solid var(--violet);
+    border-radius: 30px;
+    color: var(--violet);
+    font-size: 13px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: rgba(196, 78, 255, 0.12);
+    box-shadow: 0 0 20px var(--glow2);
+}
+
+/* Key format hint */
+.key-format {
+    color: var(--violet);
+    font-weight: 600;
+}
+
+@media (max-width: 560px) {
+    .keygen-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .keygen-card {
+        padding: 24px 16px;
+    }
+
+    .key-char {
+        width: 40px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .keygen-formula {
+        gap: 8px;
+    }
+
+    .formula-plus,
+    .formula-eq {
+        font-size: 16px;
+    }
+}
