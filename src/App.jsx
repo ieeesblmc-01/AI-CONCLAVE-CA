@@ -77,7 +77,7 @@ function BenefitsPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/AI-CONCLAVE-CA">
       <AppInner />
     </BrowserRouter>
   )
