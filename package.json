@@ -5,10 +5,10 @@
   "type": "module",
   "homepage": "https://ieeesblmc-01.github.io/AI-CONCLAVE-CA/",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npx vite",
+    "build": "npx vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "npx vite preview",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
