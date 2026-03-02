@@ -20,6 +20,9 @@ function AppInner() {
   const [hovering, setHovering] = useState(false)
 
   useEffect(() => {
+    // Skip custom cursor logic on touch-only devices (no hover support)
+    if (window.matchMedia('(hover: none)').matches) return
+
     const move = (e) => {
       if (cursorRef.current) {
         cursorRef.current.style.left = e.clientX + 'px'
@@ -77,7 +80,7 @@ function BenefitsPage() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/AI-CONCLAVE-CA">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AppInner />
     </BrowserRouter>
   )

@@ -39,8 +39,10 @@ export default function ParticleBackground() {
             draw() {
                 ctx.save()
                 ctx.globalAlpha = this.life
-                ctx.shadowBlur = 8
-                ctx.shadowColor = '#c44eff'
+                if (!isMobile) {
+                    ctx.shadowBlur = 8
+                    ctx.shadowColor = '#c44eff'
+                }
                 ctx.fillStyle = this.color + this.life + ')'
                 ctx.beginPath()
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
@@ -71,8 +73,12 @@ export default function ParticleBackground() {
             }
         }
 
-        for (let i = 0; i < 120; i++) particles.push(new Particle())
-        const stars = Array.from({ length: 200 }, () => new Star())
+        const isMobile = window.innerWidth < 768
+        const PARTICLE_COUNT = isMobile ? 40 : 120
+        const STAR_COUNT = isMobile ? 80 : 200
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle())
+        const stars = Array.from({ length: STAR_COUNT }, () => new Star())
         let time = 0
 
         const animate = () => {
