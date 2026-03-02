@@ -126,12 +126,22 @@
 /* ── Mobile ── */
 @media (max-width: 640px) {
     .advantages-section {
-        padding: 96px 12px 40px;
+        padding: 96px 16px 40px;
+        text-align: center;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
 
     .adv-grid {
         grid-template-columns: 1fr;
         gap: 14px;
+        width: 100%;
     }
 
     /* Remove heavy blur on mobile for performance */
@@ -139,6 +149,8 @@
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         background: rgba(30, 10, 60, 0.85);
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .adv-card:hover,
