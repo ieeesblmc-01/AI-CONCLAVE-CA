@@ -359,3 +359,57 @@ body {
     opacity: 0;
   }
 }
+
+/* ──────────────────────────────────────────────────────
+   MOBILE PERFORMANCE: disable all repaint-heavy effects
+   on touch/mobile devices (pointer: coarse)
+────────────────────────────────────────────────────── */
+@media (pointer: coarse) {
+
+  /* Replace backdrop-filter (GPU-intensive) with solid bg */
+  .navbar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(5, 0, 15, 0.96) !important;
+  }
+
+  /* Kill text-shadow animations — they force full repaints */
+  .nav-ai-label,
+  .section-title,
+  .hero-line2,
+  .hero-line3 {
+    animation: none !important;
+    text-shadow: 0 0 12px var(--violet);
+  }
+
+  /* Kill box-shadow animations — also cause repaints */
+  .hero-badge,
+  .btn-primary,
+  .register-glow-ring,
+  .register-glow-ring2 {
+    animation: none !important;
+    box-shadow: 0 0 20px var(--glow2);
+  }
+
+  /* Kill gradient-shift on register button */
+  .register-btn {
+    animation: none !important;
+    background: linear-gradient(135deg, var(--purple), var(--violet), var(--pink));
+  }
+
+  /* Kill shimmer overlay on button */
+  .register-btn-glow {
+    display: none !important;
+  }
+
+  /* Kill scanline (extra compositing layer) */
+  .scanline {
+    display: none !important;
+  }
+
+  /* Kill time separator blink — tiny but adds up */
+  .time-sep {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}

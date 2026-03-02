@@ -74,21 +74,26 @@ export default function ParticleBackground() {
         }
 
         const isMobile = window.innerWidth < 768
-        const PARTICLE_COUNT = isMobile ? 40 : 120
-        const STAR_COUNT = isMobile ? 80 : 200
+        const PARTICLE_COUNT = isMobile ? 30 : 120
+        const STAR_COUNT = isMobile ? 60 : 200
+        // Throttle canvas to 20fps on mobile, 60fps on desktop
+        const FRAME_MS = isMobile ? 50 : 0
+        let lastFrameTime = 0
 
         for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle())
         const stars = Array.from({ length: STAR_COUNT }, () => new Star())
         let time = 0
 
-        const animate = () => {
+        const animate = (timestamp) => {
+            animId = requestAnimationFrame(animate)
+            if (FRAME_MS && timestamp - lastFrameTime < FRAME_MS) return
+            lastFrameTime = timestamp
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             time++
             stars.forEach(s => s.draw(time))
             particles.forEach(p => { p.update(); p.draw() })
-            animId = requestAnimationFrame(animate)
         }
-        animate()
+        animate(0)
 
         return () => {
             cancelAnimationFrame(animId)
