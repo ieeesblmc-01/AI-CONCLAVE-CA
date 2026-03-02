@@ -20,8 +20,8 @@ function AppInner() {
   const [hovering, setHovering] = useState(false)
 
   useEffect(() => {
-    // Skip custom cursor logic on touch-only devices (no hover support)
-    if (window.matchMedia('(hover: none)').matches) return
+    // Skip custom cursor logic on touch/mobile devices (no hover support)
+    if (window.matchMedia('(pointer: coarse)').matches) return
 
     const move = (e) => {
       if (cursorRef.current) {

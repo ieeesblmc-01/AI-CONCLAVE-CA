@@ -37,7 +37,7 @@ body {
 }
 
 /* Hide custom cursor on touch/mobile devices */
-@media (hover: none) {
+@media (pointer: coarse) {
   body {
     cursor: auto;
   }

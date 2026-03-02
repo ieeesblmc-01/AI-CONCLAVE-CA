@@ -79,6 +79,15 @@ export default function Navbar() {
 
             {/* Mobile dropdown menu */}
             <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+                {/* Logos row inside mobile menu */}
+                <div className="mobile-logo-strip">
+                    {logos.map(l => (
+                        <div className="mobile-logo-item" key={l.name} title={l.name}>
+                            <img src={l.src} alt={l.name} className="mobile-logo-img" />
+                        </div>
+                    ))}
+                </div>
+                <div className="mobile-menu-divider" />
                 <NavLink to="/" className={({ isActive }) => 'mobile-nav-link' + (isActive ? ' active' : '')} end onClick={closeMenu}>🏠 Home</NavLink>
                 <NavLink to="/benefits" className={({ isActive }) => 'mobile-nav-link' + (isActive ? ' active' : '')} onClick={closeMenu}>🌟 Benefits</NavLink>
                 <NavLink to="/register" className={({ isActive }) => 'mobile-nav-link mobile-nav-cta' + (isActive ? ' active' : '')} onClick={closeMenu}>🚀 Register</NavLink>

@@ -186,14 +186,51 @@
     gap: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.2s ease;
+    transition: max-height 0.4s ease, padding 0.2s ease;
     border-top: 1px solid transparent;
 }
 
 .mobile-menu.open {
-    max-height: 300px;
+    max-height: 420px;
     border-top: 1px solid var(--border);
-    padding: 8px 0;
+    padding: 12px 0 8px;
+}
+
+/* Logo strip inside mobile menu */
+.mobile-logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 20px 12px;
+}
+
+.mobile-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(1.1);
+    mix-blend-mode: lighten;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-logo-img:hover {
+    filter: brightness(1.4) drop-shadow(0 0 5px var(--purple));
+    transform: scale(1.1);
+}
+
+.mobile-menu-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 20px 8px;
+    opacity: 0.6;
 }
 
 .mobile-nav-link {
@@ -225,33 +262,69 @@
     background: rgba(255, 68, 204, 0.10);
 }
 
-/* ── Responsive breakpoints ── */
+/* ── Tablet: hide right logos ── */
 @media (max-width: 900px) {
     .nav-logos-right {
         display: none;
     }
+
+    .navbar {
+        padding: 10px 16px;
+    }
 }
 
-@media (max-width: 640px) {
-    /* Show only first 2 logos at smaller size instead of hiding all */
-    .nav-logos-left {
-        gap: 4px;
-        max-width: 60px;
-        overflow: hidden;
+@media (max-width: 700px) {
+    .nav-logo-img {
+        width: 26px;
+        height: 26px;
     }
 
-    .nav-logo-img {
-        width: 24px;
-        height: 24px;
+    .nav-page-links {
+        gap: 4px;
+    }
+
+    .nav-link {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* ── Phone: hide ALL logos, title + hamburger only ── */
+@media (max-width: 560px) {
+    .navbar {
+        padding: 8px 12px;
+    }
+
+    .nav-inner {
+        gap: 6px;
+    }
+
+    .nav-logos-left,
+    .nav-logos-right {
+        display: none;
+    }
+
+    .nav-title {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
     }
 
     .nav-event-label {
         font-size: 7px;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     .nav-ai-label {
-        font-size: 10px;
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     .desktop-only {
@@ -265,11 +338,5 @@
 
     .mobile-menu {
         display: flex;
-    }
-}
-
-@media (max-width: 380px) {
-    .nav-logos-left {
-        max-width: 28px;
     }
 }
