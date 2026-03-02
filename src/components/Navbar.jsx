@@ -13,7 +13,7 @@ import logoIEEE from '../assets/logo/IEEE_MB_white_RGB_72ppi.png'
 import logoKSUM from '../assets/logo/ksumiedcsquarefullwhite.png'
 
 const logos = [
-    { name: 'GSAI', src: logo1 },
+    { name: 'InnovateX', src: logo1 },
     { name: 'LMCST', src: logo4 },
     { name: 'LMCST', src: logoLMCST2 },
     { name: 'LMCST IEEE', src: logo6 },
